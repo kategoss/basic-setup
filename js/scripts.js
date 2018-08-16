@@ -4,14 +4,14 @@ var ay = "ay";
 var vowels = ["a", "e", "i", "o", "u"];
 var firstLetterVowelResult;
 
-var ifFirstLetterVowel = function(firstLetter) {
+var ifFirstLetterVowel = function(firstLetter) { // to check is first letter of word(s) is a vowel
   vowels.forEach(function(vowel) {
     if(vowel === firstLetter) {
       firstLetterVowelResult = true;
     }
   });
 }
-var ifBeginOfWordIsConsonant = function(word) {
+var ifBeginOfWordIsConsonant = function(word) { // to check if first letter or consecutive letters are consonants
   for(var i = 0; i <= vowels.length; i++) {
     var vowel = vowels[i];
     for(var j = 0; j <= word.length; j++) {
@@ -42,7 +42,7 @@ $(document).ready(function() {
         var vowelAtBegin = arrayWord.concat("way");
         pigLatin.push(vowelAtBegin);
       } else if (arrayWord.includes("qu")) {
-        if(arrayWord[0] == "q" && arrayWord[1] == "u" && arrayWord !== ""  && arrayWord !== /\W/g ) {
+        if(arrayWord[0] == "q" && arrayWord[1] == "u" && arrayWord !== ""  && arrayWord !== "") {
           var slicedWord = arrayWord.slice(2);
           var quAtBegin = slicedWord.concat(quay);
           pigLatin.push(quAtBegin);
