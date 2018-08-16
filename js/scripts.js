@@ -1,40 +1,49 @@
 // business logic
 var quay = "quay";
 var ay = "ay";
-var pigLatin = [];
 var vowels = ["a", "e", "i", "o", "u"];
 var firstLetterVowelResult;
 
-var ifFirstLetterVowel = function(word) {
+var ifFirstLetterVowel = function(firstLetter) {
   vowels.forEach(function(vowel) {
-    if(vowel === word) {
+    if(vowel === firstLetter) {
       firstLetterVowelResult = true;
     }
   });
+}
+var ifBeginOfWordIsConsonant = function(word) {
+  for(var i = 0; i <= vowels.length; i++) {
+    var vowel = vowels[i];
+    for(var j = 0; j <= word.length; j++) {
+      var letter = word[j];
+      if(letter === vowel) {
+        var vowelIndex = word.indexOf(word[j]);
+        var startOfNewWord = word.substring(vowelIndex);
+        var slicedConsonent = word.substring(0, vowelIndex);
+        return startOfNewWord.concat(slicedConsonent + "ay");
+      }
+    }
+  }
 }
 
 // user interface logic
 $(document).ready(function() {
   $("#form").submit(function(event) {
     event.preventDefault();
-    // $("#message").empty(); NEED TO FIND A WAY TO CLEAR MESSAGE ON SUBMIT
+    $("#message").html("");
     var userInput = $("#userInput").val();
     var arrayWords = userInput.split(" ");
-
+    var pigLatin = [];
     arrayWords.forEach(function(arrayWord) {
       firstLetterVowelResult = undefined;
       ifFirstLetterVowel(arrayWord[0]);
+
       if( firstLetterVowelResult == true)  {
-        console.log(firstLetterVowelResult);
         var vowelAtBegin = arrayWord.concat("way");
         pigLatin.push(vowelAtBegin);
-      } else {
-        console.log(firstLetterVowelResult);
-      }
-      if (arrayWord.includes("qu")) {
+      } else if (arrayWord.includes("qu")) {
         if(arrayWord[0] == "q" && arrayWord[1] == "u" && arrayWord !== ""  && arrayWord !== /\W/g ) {
           var slicedWord = arrayWord.slice(2);
-          console.log(slicedWord)
           var quAtBegin = slicedWord.concat(quay);
           pigLatin.push(quAtBegin);
         } else {
@@ -42,11 +51,12 @@ $(document).ready(function() {
           pigLatin.push(quAtMiddle);
         }
       } else if (arrayWord !== "") {
-        var ifNoQu = arrayWord.concat(ay);
-        pigLatin.push(ifNoQu);
+        var newWord = ifBeginOfWordIsConsonant(arrayWord);
+        pigLatin.push(newWord);
       }
     });
-    var finalPhrase = pigLatin.join(" ");
-    $("#message").text(finalPhrase);
+    finalPhrase = pigLatin.join(" ");
+    $("#userInput").val(" ");
+    $("#message").html(finalPhrase);
   });
 });
