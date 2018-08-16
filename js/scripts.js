@@ -1,21 +1,35 @@
+// business logic
 var quay = "quay";
 var ay = "ay";
 var pigLatin = [];
-var vowelTest = function(word) {
-  return (/^[aeiou]$/).test(word);
+var vowels = ["a", "e", "i", "o", "u"];
+var firstLetterVowelResult;
+
+var ifFirstLetterVowel = function(word) {
+  vowels.forEach(function(vowel) {
+    if(vowel === word) {
+      firstLetterVowelResult = true;
+    }
+  });
 }
+
+// user interface logic
 $(document).ready(function() {
   $("#form").submit(function(event) {
     event.preventDefault();
-    $("#message").empty();
+    // $("#message").empty(); NEED TO FIND A WAY TO CLEAR MESSAGE ON SUBMIT
     var userInput = $("#userInput").val();
     var arrayWords = userInput.split(" ");
-    console.log(arrayWords);
 
     arrayWords.forEach(function(arrayWord) {
-      var test = vowelTest(arrayWord[0]);
-      if( test == true)  {
-        console.log(test); // need to add "way" at end of word
+      firstLetterVowelResult = undefined;
+      ifFirstLetterVowel(arrayWord[0]);
+      if( firstLetterVowelResult == true)  {
+        console.log(firstLetterVowelResult);
+        var vowelAtBegin = arrayWord.concat("way");
+        pigLatin.push(vowelAtBegin);
+      } else {
+        console.log(firstLetterVowelResult);
       }
       if (arrayWord.includes("qu")) {
         if(arrayWord[0] == "q" && arrayWord[1] == "u" && arrayWord !== ""  && arrayWord !== /\W/g ) {
