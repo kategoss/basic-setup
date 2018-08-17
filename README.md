@@ -1,8 +1,8 @@
-# _Pig Latin_
+# Title
 
-#### _Pig Latin generator_
+#### Title/Project
 
-#### By _**Kate Goss & Hassan Al-khalifah**_
+#### By Kate Goss
 
 ## Description
 
@@ -10,47 +10,47 @@ __
 
 ## Setup/Installation Instructions
 
-*_Make sure you have Git downloaded and setup on your local device._
+Make sure you have Git downloaded and setup on your local device.
 
-*_Open terminal on your local device._
+Open terminal on your local device.
 
-*_If you have not configured Git on your local device, in the terminal, you will need to set up a global configuration by entering the following:_
+If you have not configured Git on your local device, in the terminal, you will need to set up a global configuration by entering the following:
 
 ```
 _git config --global user.name "Your first and last name"_
 
 git config --global user.email example@gmail.com_
 ```
-*_If you're not already in the desktop directory in your terminal, then direct yourself to the desktop directory by entering the follow in your terminal:_
+If you're not already in the desktop directory in your terminal, then direct yourself to the desktop directory by entering the follow in your terminal:
 
 `_cd Desktop_`
 
-*_You can now begin by cloning the GitHub remote repository to your desktop. On the GitHub website with the remote GitHub repository, you will find a button colored green with the text "Clone or Download." Click the button and copy the GitHub repository URL._
+You can now begin by cloning the GitHub remote repository to your desktop. On the GitHub website with the remote GitHub repository, you will find a button colored green with the text "Clone or Download." Click the button and copy the GitHub repository URL.
 
-*_Now in your terminal, enter the following:_
+Now in your terminal, enter the following:
 
 `_git clone "the GitHub repository URL you copied"_` without the quotes
 
-*_Now your desktop should have a local copy of the cloned repository._
+Now your desktop should have a local copy of the cloned repository.
 
-*_To view the webpage, in your terminal, enter the following:_
+To view the webpage, in your terminal, enter the following:
 
 `_open index.html_`
 
-*_The webpage should simply open in your default web browser._
+The webpage should simply open in your default web browser.
 
 ## Technologies Used
 
-*_HTML5_
+HTML5
 
-*_CSS3_
+CSS3
 
-*_Git_
+Git
 
-*_GitHub_
+GitHub
 
-*_README_
+README
 
 ### License
 
-Copyright (c) 2018 **_Kate Goss & Hassan Al-khalifah_**
+Copyright (c) 2018 **_Kate Goss_**
